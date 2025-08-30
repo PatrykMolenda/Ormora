@@ -12,9 +12,12 @@ lua54 'yes'
 server_only 'yes'
 
 server_scripts {
-    'init.lua',
-    'main.lua',
-    'adapters/*.lua',
     'config/*.lua',
-    'core/**/*.lua'
+    'adapters/*.lua',
+    'core/query/*.lua',
+    'core/model/base.lua',
+    'core/util/*.lua',
+    'core/driver.lua',
+    'core/migration.lua',
+    'main.lua'
 }
