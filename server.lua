@@ -1,11 +1,11 @@
 local loaded = {}
 
-require = function(name)
-    if type(name) ~= 'string' then
-        error(("module name must be a string (received '%s')"):format(name), 3)
+require = function(modName)
+    if type(modName) ~= 'string' then
+        error(("module name must be a string (received '%s')"):format(modName), 3)
     end
 
-    local module = loaded[name]
+    local module = loaded[modName]
 
     if module == '__loading' then
         error(("^1circular-dependency occurred when loading module '%s'^0"):format(modName), 2)
