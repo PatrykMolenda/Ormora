@@ -3,7 +3,7 @@ GitHub.__index = GitHub
 
 function GitHub:new()
     local instance = setmetatable({}, GitHub)
-    instance.repo = LoadResourceFile(GetCurrentResourceName(), 'repository') or 'unknown/repo'
+    instance.repo = "PatrykMolenda/Ormora"
     return instance
 end
 
