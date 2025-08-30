@@ -21,3 +21,7 @@ server_scripts {
     'core/migration.lua',
     'main.lua'
 }
+
+files {
+    'core/query/*.lua'
+}
