@@ -1,4 +1,4 @@
-local Builder = require('core.query.builder')
+local Builder = require('core.query.builder.lua')
 
 local Model = {}
 Model.__index = Model
