@@ -1,6 +1,39 @@
-local DbConfig = lib.load('config.database')
-local GitHub = lib.load('core.util.github'):new()
-local fs = lib.load('core.util.fs'):new()
+require = function(name)
+    if type(name) ~= 'string' then
+        error(("module name must be a string (received '%s')"):format(name), 3)
+    end
+
+    local module = loaded[name]
+
+    if module == '__loading' then
+        error(("^1circular-dependency occurred when loading module '%s'^0"):format(modName), 2)
+    end
+
+    if module ~= nil then return module end
+
+    loaded[modName] = '__loading'
+
+    local err = {}
+
+    for i = 1, #package.searchers do
+        local result, errMsg = package.searchers[i](modName)
+
+        if result then
+            if type(result) == 'function' then result = result() end
+            loaded[modName] = result or result == nil
+
+            return loaded[modName]
+        end
+
+        err[#err + 1] = errMsg
+    end
+
+    error(("%s"):format(table.concat(err, "\n\t")))
+end
+
+local DbConfig = require 'config.database'
+local GitHub = require 'core.util.github':new()
+local fs = require 'core.util.fs':new()
 
 local dbDriver = DbConfig.adapter or 'oxmysql'
 

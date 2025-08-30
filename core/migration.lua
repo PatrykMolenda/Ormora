@@ -1,4 +1,4 @@
-local Grammar = lib.load('core.query.grammar')
+local Grammar = require 'core.query.grammar'
 
 local Migration = {}
 
