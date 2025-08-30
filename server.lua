@@ -1,3 +1,5 @@
+local loaded = {}
+
 require = function(name)
     if type(name) ~= 'string' then
         error(("module name must be a string (received '%s')"):format(name), 3)
