@@ -12,7 +12,7 @@ lua54 'yes'
 server_only 'yes'
 
 server_scripts {
-    'main.lua'
+    'server.lua'
 }
 
 shared_scripts {
