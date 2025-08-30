@@ -13,5 +13,7 @@ server_only 'yes'
 
 server_scripts {
     'lib.lua',
-    'server.lua'
+    'server.lua',
+    'tests/runner.lua',
+    'export.lua'
 }
