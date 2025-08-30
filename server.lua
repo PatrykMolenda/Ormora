@@ -21,24 +21,7 @@ AddEventHandler('onResourceStart', function (resourceName)
     end
 
     -- Checks for updates
-    GitHub:get_latest_release(function(success, version)
-        if success then
-            local currentVersion, err = GitHub:getCurrentVersion()
-            if not currentVersion then
-                print('^1[Ormora]^7 Error reading current version: ' .. err)
-                return
-            end
-
-            if currentVersion ~= version then
-                print(string.format('^3[Ormora]^7 New version available: ^2%s^7 (current: ^1%s^7)', version, currentVersion))
-                print(string.format('^3[Ormora]^7 Please update at: ^2https://github.com/%s', GitHub:get_repository()))
-            else
-                print('^2[Ormora]^7 You are using the latest version: ^3' .. currentVersion)
-            end
-        else
-            print('^1[Ormora]^7 Failed to check for updates: ' .. version)
-        end
-    end)
+    lib.versionCheck("PatrykMolenda/Ormora")
 
     -- Checks adapter exists
     if not fs:file_exists(string.format('adapters/%s.lua', dbDriver)) then
