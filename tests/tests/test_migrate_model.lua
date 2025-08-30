@@ -1,8 +1,10 @@
 Test = {}
 Test.__index = Test
+local Model = require('core.model.base')
+local Driver = Core.resolveDriver()
+local Migration = require('core.migration')
 
 function Test:register_model()
-    local Model = require('core.model.base')
     local TestModel = setmetatable({}, Model)
     TestModel.__index = TestModel
 
@@ -30,8 +32,6 @@ end
 function Test:create_migraiton()
     -- Register a Model
     local TestModel = self:register_model()
-    local Migration = require('core.migration')
-    local Driver = Core.resolveDriver()
 
     Migration.migrate(Driver, TestModel)
 
