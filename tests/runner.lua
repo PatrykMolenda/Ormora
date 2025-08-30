@@ -11,7 +11,7 @@ RegisterCommand('run_test', function(source, args, rawCommand)
     end
 
     local timeBefore = os.clock()
-    local test = require('tests.tests.' .. testName)
+    local test = require('tests.tests.test_' .. testName)
     local statuses = test:run()
     for i, status in ipairs(statuses) do
         print(string.format('Test %d: %s', i, status and 'Passed' or 'Failed'))

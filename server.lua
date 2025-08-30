@@ -17,14 +17,14 @@ AddEventHandler('onResourceStart', function (resourceName)
         return
     end
 
+    local startTime
+
     if DbConfig.debug then
         startTime = os.clock()
         print('^3[Ormora]^7 Debug mode is enabled')
     end
 
     print('^2[Ormora]^7 Initializing...')
-
-    local startTime
 
     -- Checks for updates
     GitHub:get_latest_release(function(success, version)
