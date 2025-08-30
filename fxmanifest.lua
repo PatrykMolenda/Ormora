@@ -14,3 +14,7 @@ server_only 'yes'
 server_scripts {
     'main.lua'
 }
+
+shared_scripts {
+    '@ox_lib/init.lua'
+}

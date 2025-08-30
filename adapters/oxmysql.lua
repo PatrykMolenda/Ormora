@@ -23,3 +23,5 @@ oxmysql.scalar = function(sql, params, cb)
         return exports.oxmysql.scalar_async(sql, params)
     end
 end
+
+return oxmysql

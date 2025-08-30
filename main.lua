@@ -1,6 +1,6 @@
-local DbConfig = require('config.database')
-local GitHub = require('core.util.github'):new()
-local fs = require('core.util.fs'):new()
+local DbConfig = lib.load('config.database')
+local GitHub = lib.load('core.util.github'):new()
+local fs = lib.load('core.util.fs'):new()
 
 local dbDriver = DbConfig.adapter or 'oxmysql'
 
